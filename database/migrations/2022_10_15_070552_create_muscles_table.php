@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('muscles', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->mediumText("short_desc");
+            $table->mediumText("long_desc");
+            $table->string("first_img_name");
+            $table->string("second_img_name");
+            $table->string("video_url");
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('muscles');
+    }
+};
